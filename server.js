@@ -1,0 +1,1678 @@
+const express = require("express");
+
+const app = express();
+const PORT = 2026;
+
+app.use(express.json());
+
+
+/* DATA PER SEIZOEN */
+
+const seasonData = {
+  2026: {
+    motogp: {
+      races: [
+   {
+  id: 1,
+  name: "Thailand GP",
+  circuit: "Chang International Circuit",
+  country: "Thailand",
+  date: "2026-03-01",
+  pole: "M. Bezzecchi, 01:28.652",
+  laps: 26,
+  results: [
+    { position: 1, rider: "M. Bezzecchi", team: "Aprilia Racing" },
+    { position: 2, rider: "P. Acosta", team: "Redbull KTM" },
+    { position: 3, rider: "R. Fernandez", team: "Trackhouse MotoGP Team" },
+    { position: 4, rider: "J. Martin", team: "Aprilia Racing" },
+    { position: 5, rider: "A. Ogura", team: "Trackhouse MotoGP Team" },
+    { position: 6, rider: "F. Di Giannantonio", team: "VR46 Racing Team"},
+    { position: 7, rider: "B. Binder", team: "Redbull KTM"},
+    { position: 8, rider: "F. Morbidelli", team: "VR46 Racing Team"},
+    { position: 9, rider: "F. Bagnaia", team: "Ducati"},
+    { position: 10, rider: "L. Marini", team: "Honda"},
+    { position: 11, rider: "J. Zarco", team: "Castrol"},
+    { position: 12, rider: "E. Bastianini", team: "Tech3 KTM"},
+    { position: 13, rider: "D. Moreira", team: "Pro Honda"},
+  { position: 14, rider: "F. Quartararo", team: "Yamaha  MotoGP Team"},
+   { position: 15, rider: "A. Rins", team: "Yamaha MotoGP Team"},
+   { position: 16, rider: "M. Viñales", team: "Tech3 KTM"},
+  { position: 17, rider: "T. Razgatlioglu", team: "Prima MotoGP"},
+  { position: 18, rider: "J. Miller", team: "Prima MotoGP"},
+  { position: 19, rider: "M. Pirro", team: "BK8 MotoGP"},
+  { position: 20, rider: "J. Mir", team: "Honda"},
+  { position: 21, rider: "A. Marquez", team: "BK8 MotoGP"},
+  { position: 22, rider: "M. Marquez", team: "Ducati"}
+  ]
+
+},
+{
+  id: 2,
+  name: "Brazil GP",
+  circuit: "Autódromo Internacional de Goiânia",
+  country: "Brazil",
+  date: "2026-03-22",
+  pole: "Unknown",
+  laps: 31,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 3,
+  name: "USA GP",
+  circuit: "Circuit Of The Americas",
+  country: "USA",
+  date: "2026-03-29",
+  pole: "Unknown",
+  laps: 19,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 4,
+  name: "Qatar GP",
+  circuit: "Lusail International Circuit",
+  country: "Qatar",
+  date: "2026-04-12",
+  pole: "Unknown",
+  laps: 22,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 5,
+  name: "Spain GP",
+  circuit: "Circuito de Jerez",
+  country: "Spain",
+  date: "2026-04-26",
+  pole: "Unknown",
+  laps: 25,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 6,
+  name: "France GP",
+  circuit: "Le Mans",
+  country: "France",
+  date: "2026-05-10",
+  pole: "Unknown",
+  laps: 27,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 7,
+  name: "Catalonia   GP",
+  circuit: "Circuit de Baracelona",
+  country: "Catalonia",
+  date: "2026-05-17",
+  pole: "Unknown",
+  laps: 24,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 8,
+  name: "Italy GP",
+  circuit: "Autodromo Internazionale del Mugello",
+  country: "Italy",
+  date: "2026-05-31",
+  pole: "Unknown",
+  laps: 23,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 9,
+  name: "Hungary GP",
+  circuit: "Balaton Park",
+  country: "Hungary",
+  date: "2026-06-07",
+  pole: "Unknown",
+  laps: 27,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 10,
+  name: "Czechia GP",
+  circuit: "Automotodrom Brno",
+  country: "Czechia",
+  date: "2026-06-21",
+  pole: "Unknown",
+  laps: 21,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 11,
+  name: "Dutch GP",
+  circuit: "TT Assen",
+  country: "Netherlands",
+  date: "2026-06-28",
+  pole: "Unknown",
+  laps: 26,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 12,
+  name: "German GP",
+  circuit: "Sachsenring",
+  country: "Germany",
+  date: "2026-07-12",
+  pole: "Unknown",
+  laps: 30,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 13,
+  name: "Great Britain GP",
+  circuit: "Silverstone",
+  country: "Great Britain",
+  date: "2026-08-09",
+  pole: "Unknown",
+  laps: 20,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 14,
+  name: "Aragon GP",
+  circuit: "Motorland Aragón",
+  country: "Aragon",
+  date: "2026-08-30",
+  pole: "Unknown",
+  laps: 23,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 15,
+  name: "San Marino GP",
+  circuit: "Misano World Circuit Marco Simoncelli",
+  country: "San Marino",
+  date: "2026-09-13",
+  pole: "Unknown",
+  laps: 27,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 16,
+  name: "Austria GP",
+  circuit: "Redbull ring",
+  country: "Austria",
+  date: "2026-09-20",
+  pole: "Unknown",
+  laps: 28,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 17,
+  name: "Japan GP",
+  circuit: "Mobility Resort Motegi",
+  country: "Japan",
+  date: "2026-10-04",
+  pole: "Unknown",
+  laps: 24,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 18,
+  name: "Indonesia GP",
+  circuit: "Pertamina Mandalika International Circuit",
+  country: "Indonesia",
+  date: "2026-10-11",
+  pole: "Unknown",
+  laps: 27,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 19,
+  name: "Australia GP",
+  circuit: "Phillip Island",
+  country: "Australia",
+  date: "2026-10-25",
+  pole: "Unknown",
+  laps: 27,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 20,
+  name: "Malaysia GP",
+  circuit: "Petronas Sepang International Circuit",
+  country: "Malaysia",
+  date: "2026-11-1",
+  pole: "Unknown",
+  laps: 20,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 21,
+  name: "Portugal GP",
+  circuit: "Autódromo Internacional do Algarve",
+  country: "Portugal",
+  date: "2026-11-15",
+  pole: "Unknown",
+  laps: 25,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 22,
+  name: "Valencia GP",
+  circuit: "Circuit Ricardo Tormo",
+  country: "Valencia",
+  date: "2026-11-22",
+  pole: "Unknown",
+  laps: 27,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+}
+ ],
+    results: [
+      { race_id: 1, position: 1, rider: "Francesco Bagnaia", team: "Ducati" },
+      { race_id: 1, position: 2, rider: "Jorge Martin", team: "Pramac Ducati" },
+      { race_id: 1, position: 3, rider: "Marc Marquez", team: "Gresini Ducati" }
+    ],
+    qualifying: [
+      { race_id: 1, position: 1, rider: "Jorge Martin", lap_time: "1:51.762" },
+      { race_id: 1, position: 2, rider: "Francesco Bagnaia", lap_time: "1:51.900" }
+    ],
+    standings: [
+      { position: 1, rider: "Francesco Bagnaia", points: 320 },
+      { position: 2, rider: "Jorge Martin", points: 305 },
+      { position: 3, rider: "Marc Marquez", points: 250 }
+    ]
+   },
+       moto2: {
+      races: [
+   {
+  id: 1,
+  name: "Thailand GP",
+  circuit: "Chang International Circuit",
+  country: "Thailand",
+  date: "2026-03-01",
+  pole: "S. Agius, 01:34.576",
+  laps: 22,
+  results: [
+    { position: 1, rider: "M. Gonzalez", team: "Dynavolt Intact" },
+    { position: 2, rider: "I. Guevara", team: "Pramac Moto2" },
+    { position: 3, rider: "D. Holgado", team: "Aspar Team" },
+    { position: 4, rider: "I. Ortola", team: "MSI" },
+    { position: 5, rider: "C. Veijer", team: "Redbull KTM" },
+    { position: 6, rider: "C. Vietti", team: "SpeedRS Team"},
+    { position: 7, rider: "A. Lopez", team: "Gresini Moto2"},
+    { position: 8, rider: "D. Muñoz", team: "Italtrans Racing Team"},
+    { position: 9, rider: "D. öncü", team: "VDS Racing Team"},
+    { position: 10, rider: "A. Sasaki", team: "RW Racing Team"},
+    { position: 11, rider: "A. Canet", team: "VDS Racing Team"},
+    { position: 12, rider: "A. Escrig", team: "KLINT Racing Team"},
+    { position: 13, rider: "T. Arbolino", team: "REDS Fantic Racing"},
+  { position: 14, rider: "B. Baltus", team: "REDS Fantic Racing"},
+   { position: 15, rider: "A. Ferrandez", team: "Primac Moto2"},
+   { position: 16, rider: "T. Furusato", team: "Honda Team Asia"},
+{ position: 17, rider: "J. Navarro", team: "KLINT Racing Team"},
+  { position: 18, rider: "S. Agius", team: "Dynavolt Intact"},
+  { position: 19, rider: "F. Salac", team: "OF American Racing Team"},
+  { position: 20, rider: "Z. Vd Goorbergh", team: "RW Racing Team"},
+  { position: 21, rider: "D. Alonso", team: "Aspar Team"},
+  { position: 22, rider: "M. Aji", team: "Honda Team Asia"},
+  { position: 23, rider: "A. Piqueras", team: "MSI"},
+  { position: 24, rider: "L. Lunetta", team: "SpeedRS Team"},
+  { position: 25, rider: "S. Garcia", team: "Gresini Moto2"},
+  { position: 26, rider: "J. Roberts", team: "OF American Racing Team"},
+  { position: 27, rider: "J. Antonio Rueda", team: "Redbull KTM"},
+  ]
+
+},
+{
+  id: 2,
+  name: "Brazil GP",
+  circuit: "Autódromo Internacional de Goiânia",
+  country: "Brazil",
+  date: "2026-03-22",
+  pole: "Unknown",
+  laps: 26,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 3,
+  name: "USA GP",
+  circuit: "Circuit Of The Americas",
+  country: "USA",
+  date: "2026-03-29",
+  pole: "Unknown",
+  laps: 16,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 4,
+  name: "Qatar GP",
+  circuit: "Lusail International Circuit",
+  country: "Qatar",
+  date: "2026-04-12",
+  pole: "Unknown",
+  laps: 18,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 5,
+  name: "Spain GP",
+  circuit: "Circuito de Jerez",
+  country: "Spain",
+  date: "2026-04-26",
+  pole: "Unknown",
+  laps: 21,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 6,
+  name: "France GP",
+  circuit: "Le Mans",
+  country: "France",
+  date: "2026-05-10",
+  pole: "Unknown",
+  laps: 22,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 7,
+  name: "Catalonia   GP",
+  circuit: "Circuit de Baracelona",
+  country: "Catalonia",
+  date: "2026-05-17",
+  pole: "Unknown",
+  laps: 21,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 8,
+  name: "Italy GP",
+  circuit: "Autodromo Internazionale del Mugello",
+  country: "Italy",
+  date: "2026-05-31",
+  pole: "Unknown",
+  laps: 19,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 9,
+  name: "Hungary GP",
+  circuit: "Balaton Park",
+  country: "Hungary",
+  date: "2026-06-07",
+  pole: "Unknown",
+  laps: 22,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 10,
+  name: "Czechia GP",
+  circuit: "Automotodrom Brno",
+  country: "Czechia",
+  date: "2026-06-21",
+  pole: "Unknown",
+  laps: 18,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 11,
+  name: "Dutch GP",
+  circuit: "TT Assen",
+  country: "Netherlands",
+  date: "2026-06-28",
+  pole: "Unknown",
+  laps: 22,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 12,
+  name: "German GP",
+  circuit: "Sachsenring",
+  country: "Germany",
+  date: "2026-07-12",
+  pole: "Unknown",
+  laps: 25,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 13,
+  name: "Great Britain GP",
+  circuit: "Silverstone",
+  country: "Great Britain",
+  date: "2026-08-09",
+  pole: "Unknown",
+  laps: 17,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 14,
+  name: "Aragon GP",
+  circuit: "Motorland Aragón",
+  country: "Aragon",
+  date: "2026-08-30",
+  pole: "Unknown",
+  laps: 19,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 15,
+  name: "San Marino GP",
+  circuit: "Misano World Circuit Marco Simoncelli",
+  country: "San Marino",
+  date: "2026-09-13",
+  pole: "Unknown",
+  laps: 22,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 16,
+  name: "Austria GP",
+  circuit: "Redbull ring",
+  country: "Austria",
+  date: "2026-09-20",
+  pole: "Unknown",
+  laps: 23,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 17,
+  name: "Japan GP",
+  circuit: "Mobility Resort Motegi",
+  country: "Japan",
+  date: "2026-10-04",
+  pole: "Unknown",
+  laps: 19,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 18,
+  name: "Indonesia GP",
+  circuit: "Pertamina Mandalika International Circuit",
+  country: "Indonesia",
+  date: "2026-10-11",
+  pole: "Unknown",
+  laps: 22,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 19,
+  name: "Australia GP",
+  circuit: "Phillip Island",
+  country: "Australia",
+  date: "2026-10-25",
+  pole: "Unknown",
+  laps: 23,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 20,
+  name: "Malaysia GP",
+  circuit: "Petronas Sepang International Circuit",
+  country: "Malaysia",
+  date: "2026-11-1",
+  pole: "Unknown",
+  laps: 17,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 21,
+  name: "Portugal GP",
+  circuit: "Autódromo Internacional do Algarve",
+  country: "Portugal",
+  date: "2026-11-15",
+  pole: "Unknown",
+  laps: 21,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+},
+{
+  id: 22,
+  name: "Valencia GP",
+  circuit: "Circuit Ricardo Tormo",
+  country: "Valencia",
+  date: "2026-11-22",
+  pole: "Unknown",
+  laps: 22,
+  results: [
+    { position: 1, rider: "Unknown", team: "Unknown" },
+    { position: 2, rider: "Unknown", team: "Unknown" },
+    { position: 3, rider: "Unknown", team: "Unknown" },
+    { position: 4, rider: "Unknown", team: "Unknown" },
+    { position: 5, rider: "Unknown", team: "Unknown" },
+    { position: 6, rider: "Unknown", team: "Unknown"},
+    { position: 7, rider: "Unknown", team: "Unknown"},
+    { position: 8, rider: "Unknown", team: "Unknown"},
+    { position: 9, rider: "Unknown", team: "Unknown"},
+    { position: 10, rider: "Unknown", team: "Unknown"},
+    { position: 11, rider: "Unknown", team: "Unknown"},
+    { position: 12, rider: "Unknown", team: "Unknown"},
+    { position: 13, rider: "Unknown", team: "Unknown"},
+  { position: 14, rider: "Unknown", team: "Unknown"},
+   { position: 15, rider: "Unknown", team: "Unknown"},
+   { position: 16, rider: "Unknown", team: "Unknown"},
+  { position: 17, rider: "Unknown", team: "Unknown"},
+  { position: 18, rider: "Unknown", team: "Unknown"},
+  { position: 19, rider: "Unknown", team: "Unknown"},
+  { position: 20, rider: "Unknown", team: "Unknown"},
+  { position: 21, rider: "Unknown", team: "Unknown"},
+  { position: 22, rider: "Unknown", team: "Unknown"}
+  ]
+}
+ ],
+    results: [
+      { race_id: 1, position: 1, rider: "Francesco Bagnaia", team: "Ducati" },
+      { race_id: 1, position: 2, rider: "Jorge Martin", team: "Pramac Ducati" },
+      { race_id: 1, position: 3, rider: "Marc Marquez", team: "Gresini Ducati" }
+    ],
+    qualifying: [
+      { race_id: 1, position: 1, rider: "Jorge Martin", lap_time: "1:51.762" },
+      { race_id: 1, position: 2, rider: "Francesco Bagnaia", lap_time: "1:51.900" }
+    ],
+    standings: [
+      { position: 1, rider: "Francesco Bagnaia", points: 320 },
+      { position: 2, rider: "Jorge Martin", points: 305 },
+      { position: 3, rider: "Marc Marquez", points: 250 }
+    ]
+   }
+  },
+
+  2025: {
+    races: [
+      { id: 1, name: "Qatar GP", circuit: "Lusail", country: "Qatar", date: "2025-03-08", laps: 22 },
+      { id: 2, name: "Dutch TT", circuit: "Assen", country: "Netherlands", date: "2025-06-28", laps: 26 }
+    ],
+    results: [
+      { race_id: 1, position: 1, rider: "Francesco Bagnaia", team: "Ducati" },
+      { race_id: 1, position: 2, rider: "Jorge Martin", team: "Pramac Ducati" },
+      { race_id: 1, position: 3, rider: "Marc Marquez", team: "Gresini Ducati" }
+    ],
+    qualifying: [
+      { race_id: 1, position: 1, rider: "Jorge Martin", lap_time: "1:51.762" },
+      { race_id: 1, position: 2, rider: "Francesco Bagnaia", lap_time: "1:51.900" }
+    ],
+    standings: [
+      { position: 1, rider: "Francesco Bagnaia", points: 320 },
+      { position: 2, rider: "Jorge Martin", points: 305 },
+      { position: 3, rider: "Marc Marquez", points: 250 }
+    ]
+ },
+ 
+};
+
+
+/* API STATUS */
+
+app.get("/", (req, res) => {
+  res.json({
+    name: "MotoGP API",
+    version: "2.1",
+    endpoints: [
+      "/seasons",
+      "/seasons/:year/races",
+      "/seasons/:year/races/:id",
+      "/seasons/:year/results",
+      "/seasons/:year/qualifying",
+      "/seasons/:year/standings",
+      "/riders",
+      "/teams",
+      "/circuits"
+    ]
+  });
+});
+
+
+/* SEASONS */
+
+app.get("/seasons", (req, res) => {
+  const seasons = Object.keys(seasonData);
+  res.json(seasons);
+});
+
+
+/* RACES PER SEASON (alleen IDs) */
+
+app.get(":year/:class/races", (req, res) => {
+
+  const { year, class: raceClass } = req.params;
+
+  if (!seasonData[year]) {
+    return res.status(404).json({ error: "Season not found" });
+  }
+
+  if (!seasonData[year][raceClass]) {
+    return res.status(404).json({ error: "Class not found" });
+  }
+
+  const races = seasonData[year][raceClass].races.map(r => ({ id: r.id }));
+
+  res.json(races);
+
+});
+
+
+/* RACE DETAILS PER SEASON */
+
+app.get("/:year/:class/races/:id", (req, res) => {
+
+  const { year, class: raceClass, id } = req.params;
+
+  if (!seasonData[year]) {
+    return res.status(404).json({ error: "Season not found" });
+  }
+
+  if (!seasonData[year][raceClass]) {
+    return res.status(404).json({ error: "Class not found" });
+  }
+
+  const race = seasonData[year][raceClass].races.find(r => r.id == id);
+
+  if (!race) {
+    return res.status(404).json({ error: "Race not found" });
+  }
+
+  res.json(race);
+
+});
+
+
+/* RESULTS PER SEASON */
+
+app.get("/seasons/:year/results", (req, res) => {
+  const year = req.params.year;
+  if (!seasonData[year]) return res.status(404).json({ error: "Season not found" });
+
+  res.json(seasonData[year].results);
+});
+
+
+/* QUALIFYING PER SEASON */
+
+app.get("/seasons/:year/n", (req, res) => {
+  const year = req.params.year;
+  if (!seasonData[year]) return res.status(404).json({ error: "Season not found" });
+
+  res.json(seasonData[year].qualifying);
+});
+
+
+/* STANDINGS PER SEASON */
+
+app.get("/seasons/:year/standings", (req, res) => {
+  const year = req.params.year;
+  if (!seasonData[year]) return res.status(404).json({ error: "Season not found" });
+
+  res.json(seasonData[year].standings);
+});
+
+
+/* CIRCUITS */
+
+app.get("/circuits", (req, res) => {
+  const circuits = [
+    { name: "Lusail Circuit", country: "Qatar", length_km: 5.38 },
+    { name: "TT Circuit Assen", country: "Netherlands", length_km: 4.54 }
+  ];
+  res.json(circuits);
+});
+
+
+/* RIDERS */
+
+app.get("/riders", (req, res) => {
+  const riders = [
+    { id: 1, name: "Francesco Bagnaia", number: 1, team: "Ducati Lenovo", country: "Italy" },
+    { id: 2, name: "Marc Marquez", number: 93, team: "Gresini Ducati", country: "Spain" },
+    { id: 3, name: "Fabio Quartararo", number: 20, team: "Yamaha", country: "France" }
+  ];
+  res.json(riders);
+});
+
+
+/* TEAMS */
+
+app.get("/teams", (req, res) => {
+  const teams = [
+    { name: "Ducati Lenovo Team", bike: "Ducati Desmosedici" },
+    { name: "Monster Energy Yamaha", bike: "Yamaha YZR-M1" },
+    { name: "Repsol Honda", bike: "Honda RC213V" }
+  ];
+  res.json(teams);
+});
+
+
+/* START SERVER */
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
