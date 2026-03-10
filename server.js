@@ -7,8 +7,8 @@ const PORT = 2026;
 
 app.use(express.json());
 
-// favicon toevoegen
-app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+// favicon naast server.js
+app.use(favicon(path.join(__dirname, "favicon.ico")));
 
 /* DATA PER SEIZOEN */
 
@@ -2446,4 +2446,5 @@ app.get("/teams", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+
 });
