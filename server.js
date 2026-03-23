@@ -7,8 +7,8 @@ const PORT = 2026;
 
 app.use(express.json());
 
-// favicon naast server.js
-app.use(favicon(path.join(__dirname, "favicon.ico")));
+// favicon toevoegen
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 /* DATA PER SEIZOEN */
 
@@ -57,30 +57,30 @@ const seasonData = {
   country: "Brazil",
   date: "2026-03-22",
   pole: "Unknown",
-  laps: 31,
+  laps: 23,
   results: [
-    { position: 1, rider: "Unknown", team: "Unknown" },
-    { position: 2, rider: "Unknown", team: "Unknown" },
-    { position: 3, rider: "Unknown", team: "Unknown" },
-    { position: 4, rider: "Unknown", team: "Unknown" },
-    { position: 5, rider: "Unknown", team: "Unknown" },
-    { position: 6, rider: "Unknown", team: "Unknown"},
-    { position: 7, rider: "Unknown", team: "Unknown"},
-    { position: 8, rider: "Unknown", team: "Unknown"},
-    { position: 9, rider: "Unknown", team: "Unknown"},
-    { position: 10, rider: "Unknown", team: "Unknown"},
-    { position: 11, rider: "Unknown", team: "Unknown"},
-    { position: 12, rider: "Unknown", team: "Unknown"},
-    { position: 13, rider: "Unknown", team: "Unknown"},
-  { position: 14, rider: "Unknown", team: "Unknown"},
-   { position: 15, rider: "Unknown", team: "Unknown"},
-   { position: 16, rider: "Unknown", team: "Unknown"},
-  { position: 17, rider: "Unknown", team: "Unknown"},
-  { position: 18, rider: "Unknown", team: "Unknown"},
-  { position: 19, rider: "Unknown", team: "Unknown"},
-  { position: 20, rider: "Unknown", team: "Unknown"},
-  { position: 21, rider: "Unknown", team: "Unknown"},
-  { position: 22, rider: "Unknown", team: "Unknown"}
+    { position: 1, rider: "M. Bezzecchi", team: "Aprilia Racing" },
+    { position: 2, rider: "J. Martin", team: "Aprilia Racing" },
+    { position: 3, rider: "F. Di Giannantonio", team: "VR46 Racing Team" },
+    { position: 4, rider: "M. Marquez", team: "Ducati" },
+    { position: 5, rider: "A. Ogura", team: "Trackhouse MotoGP Team" },
+    { position: 6, rider: "A. Marquez", team: "Gresini"},
+    { position: 7, rider: "P. Acosta", team: "Redbull KTM"},
+    { position: 8, rider: "F. Aldeguer", team: "Gresini"},
+    { position: 9, rider: "J. Zarco", team: "Castol Honda LCR"},
+    { position: 10, rider: "R. Fernandez", team: "Trackhouse MotoGP Team"},
+    { position: 11, rider: "L. Marini", team: "Honda HRC Castrol"},
+    { position: 12, rider: "F. Morbidelli", team: "VR46 Racing Team"},
+    { position: 13, rider: "D. Moreira", team: "Pro Honda LCR"},
+  { position: 14, rider: "A. Rins", team: "Yahama MotoGP Team"},
+   { position: 15, rider: "E. Bastianini", team: "KTM Tech3"},
+   { position: 16, rider: "F. Quartararo", team: "Yahama MotoGP Team"},
+  { position: 17, rider: "T. Razgatlioglu", team: "Prima Pramac"},
+  { position: 18, rider: "M. Vinales", team: "KTM Tech3"},
+  { position: 19, rider: "F. Bagnaia", team: "Ducati"},
+  { position: 20, rider: "J. Mir", team: "Honda HRC Castol"},
+  { position: 21, rider: "B. Binder", team: "Redbull KTM"},
+  { position: 22, rider: "J. Miller", team: "Prima Pramac"}
   ]
 },
 {
@@ -2446,5 +2446,4 @@ app.get("/teams", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-
 });
